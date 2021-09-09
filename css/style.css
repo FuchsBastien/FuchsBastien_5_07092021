@@ -30,13 +30,10 @@ header a img {
     text-align: right;
   }
 
-.grand_cadre  {
-  background-color: #f3e9f1;
-  border-radius: 30px;
-  width: 75%;
-  margin: auto;
-}
-  
+
+
+
+ /*page index*/ 
 .teddy_frame {
   width: 500px;
   margin-left: auto;
@@ -63,18 +60,45 @@ header a img {
 }
 
 .teddy_description {
+  background-color: #f3e9f1;
   border-bottom : solid 10px #f3e9f1;
   border-left : solid 10px #f3e9f1;
   border-right : solid 10px #f3e9f1;
   border-bottom-right-radius: 50px;
   border-bottom-left-radius: 50px;
   width: 500px;
-
 }
 
-.detail {
+
+
+
+/*page produit*/
+.teddy_detail_frame {
+  background-color: #f3e9f1;
+  border-radius: 30px;
+  width: 1500px;
+  margin: auto;
+}
+
+.teddy_detail {
+  border : solid 20px #f3e9f1;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    width: 1500px;
+    overflow: hidden;
+}
+
+.teddy_detail_picture {
+  width: 1500px;
+  /*overflow: hidden;*/
+}
+
+.teddy_detail_description {
   text-align: center;
 }
+
+
+
 
 h1,h2 {
   text-align: center;

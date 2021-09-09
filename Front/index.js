@@ -2,7 +2,7 @@ async function appelerapi(){
 
     /*try {*/
         /*récupération api*/
-        let response = await fetch("http://localhost:3000/api/teddies")
+        let response = await fetch("http://localhost:3000/api/teddies/")
         if (response.ok) {
           let teddies = await response.json();  
            console.log (teddies); 
@@ -21,7 +21,7 @@ async function appelerapi(){
             /*création lien teddy*/
             const teddiesLink = document.createElement('a');
             teddiesClass.appendChild(teddiesLink);
-            teddiesLink.href = "produit.html";
+            teddiesLink.href = "produit.html?id=" + teddy._id;
             teddiesLink.className = "teddy_details";
             /*création image teddy*/
             const teddyImg = document.createElement('img');
@@ -53,52 +53,7 @@ async function appelerapi(){
     }*/
 }
 
-
+/*appel fonction */
 appelerapi();
 
 
-/*const getTeddies =  async function() {
-    try {
-        let response = await fetch('http://localhost:3000/api/teddies/');
-        if (response.ok) {
-            let teddies = await response.json();
-            console.log(teddies);
-        }
-        else {
-            console.error('Retour du serveur : ', response.status);
-            alert('Erreur rencontrée : ' + response.status);
-        } 
-    } 
-    catch (error) {
-        alert("Erreur : " + error);
-    }
-}
-
-getTeddies();*/
-
-
-
-
-/*function appelerapi(){
-    fetch("http://localhost:3000/api/teddies")
-    
-    .then(function(res){
-      if (res.ok) {
-      return res.json();   
-      }
-    })
-
-   .then(function(value) {
-    console.log(value);
-    document.querySelector (".nom").innerText= value[0].name;
-    document.querySelector (".image").src= value[0].imageUrl;
-    document.querySelector (".prix").innerText= value[0].price;
-   })
-
-  .catch(function(err) {
-
-  });
-}
-
-
-appelerapi()*/
