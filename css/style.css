@@ -3,6 +3,8 @@ body {
     font-family: "Montserrat", sans-serif;
   }
   
+/*-------------------------------------------------------------*/
+/*header*/
 header {
  
     display: flex;
@@ -29,10 +31,77 @@ header a img {
     margin: auto 30px auto 5px;
     text-align: right;
   }
+/*-------------------------------------------------------------*/
 
 
 
+/*-------------------------------------------------------------*/
+/*footer*/
+footer {
+  background-color: #f3e9f1;
+  border-radius : 30px 30px 0px 0px;
+}
+/*-------------------------------------------------------------*/
 
+
+
+/*-------------------------------------------------------------*/
+/*titres et liens*/
+h1,h2 {
+  text-align: center;
+  margin: 20px 0px 20px 0px;
+}
+
+h3 {
+  text-align: center;
+  margin-top: 0;
+}
+
+a {
+  text-decoration: none;
+}
+/*-------------------------------------------------------------*/
+
+
+
+/*-------------------------------------------------------------*/
+/*boutons*/
+.accueil {
+  border: none;
+  background-color: #f3e9f1;
+  border-radius: 10px;
+  display: block;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding:20px;
+  text-decoration: none;
+}
+
+.panier {
+  border: none;
+  background-color: red;
+  border-radius: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding:20px;
+}
+
+.validation {
+  border: none;
+  background-color: red;
+  border-radius: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 20px;
+  display: block;
+  margin: auto;
+}
+/*-------------------------------------------------------------*/
+
+
+
+/*-------------------------------------------------------------*/
  /*page index*/ 
 .teddy_frame {
   width: 500px;
@@ -68,13 +137,11 @@ header a img {
   border-bottom-left-radius: 50px;
   width: 500px;
 }
+/*-------------------------------------------------------------*/
 
-
-
-
+/*-------------------------------------------------------------*/
 /*page produit*/
 .teddy_detail_frame {
-  background-color: #f3e9f1;
   border-radius: 30px;
   width: 1500px;
   margin: auto;
@@ -82,10 +149,10 @@ header a img {
 
 .teddy_detail {
   border : solid 20px #f3e9f1;
-    border-top-left-radius: 50px;
-    border-top-right-radius: 50px;
-    width: 1500px;
-    overflow: hidden;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  width: 1500px;
+  overflow: hidden;
 }
 
 .teddy_detail_picture {
@@ -94,72 +161,38 @@ header a img {
 }
 
 .teddy_detail_description {
-  text-align: center;
-}
-
-
-
-
-h1,h2 {
-  text-align: center;
-  margin: 20px 0px 20px 0px;
-}
-
-h3 {
-  text-align: center;
-}
-
-
-a {
-  text-decoration: none;
-}
-
-.accueil {
-  border: none;
   background-color: #f3e9f1;
-  border-radius: 10px;
-  display: block;
-  margin: auto;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  padding:20px;
-  text-decoration: none;
+  border-bottom : solid 20px #f3e9f1;
+  border-left : solid 20px #f3e9f1;
+  border-right : solid 20px #f3e9f1;
+  border-bottom-right-radius: 50px;
+  border-bottom-left-radius: 50px;
+  text-align: center;
+  width: 1500px;
 }
-
-.panier {
-  border: none;
-  background-color: red;
-  border-radius: 10px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  padding:20px;
-}
+/*-------------------------------------------------------------*/
 
 
-.validation {
-  border: none;
-  background-color: red;
-  border-radius: 10px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  padding: 20px;
-  display: block;
-  margin: auto;
-}
 
+/*-------------------------------------------------------------*/
+/*page panier*/
 
-footer {
-  background-color: #f3e9f1;
-  border-radius : 30px 30px 0px 0px;
-}
-
-
-.formulaire {
+#total_basket {
   background-color: #f3e9f1;
   border-radius: 30px;
   width: 75%;
-  margin: auto;
+  margin: 50px auto 50px auto;
   padding: 15px;
+  text-align: center;
+}
+
+#form {
+  background-color: #f3e9f1;
+  border-radius: 30px;
+  width: 75%;
+  margin: 50px auto 50px auto;
+  padding: 15px;
+  text-align: center;
 }
 
 .form-group {
@@ -167,3 +200,4 @@ footer {
   margin: auto;
   padding: 10px;
 }
+/*-------------------------------------------------------------*/
