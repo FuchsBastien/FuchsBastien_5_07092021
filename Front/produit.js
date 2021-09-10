@@ -1,0 +1,98 @@
+//récupération de l'ID de l'ourson de la page
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const id = urlParams.get('id');
+console.log(id);
+
+const getTeddies = async function () {
+
+    try {
+        /*récupération api*/
+        let response = await fetch("http://localhost:3000/api/teddies/" + id);
+        if (response.ok) {
+          let teddy = await response.json();  
+           console.log (teddy); 
+
+           /*récupération main teddies_detail*/
+          const teddyMain = document.getElementById ('teddy_main');
+
+          /*création h1 teddy_main*/
+          const teddyMainH2 = document.createElement('h2');
+          teddyMain.appendChild(teddyMainH2);
+          teddyMainH2.textContent = teddy.name;
+
+          /*création div teddy_detail_frame*/
+          const teddyDetailFrame = document.createElement ('div');
+          teddyMain.appendChild(teddyDetailFrame);
+          teddyDetailFrame.className= 'teddy_detail_frame';
+
+          /*création div teddy_detail*/
+          const teddyDetail = document.createElement ('div');
+          teddyDetailFrame.appendChild(teddyDetail);
+          teddyDetail.className= 'teddy_detail';
+
+          /*création image teddy_detail*/
+          const teddyDetailPicture = document.createElement ('img');
+          teddyDetail.appendChild(teddyDetailPicture);
+          teddyDetailPicture.className= 'teddy_detail_picture';
+          teddyDetailPicture.setAttribute('src', teddy.imageUrl);
+
+          /*création div teddy_detail_description*/
+          const teddyDetailDescription = document.createElement ('div');
+          teddyDetailFrame.appendChild(teddyDetailDescription);
+          teddyDetailDescription.className= 'teddy_detail_description';
+
+           /*création description teddy_detail_description*/
+          const teddyDescription =document.createElement ('div');
+          teddyDetailDescription.appendChild(teddyDescription);
+          teddyDescription.textContent=teddy.description;
+
+          /*création prix teddy_detail_description*/
+          const teddyPrix = document.createElement ('p');
+          teddyDetailDescription.appendChild(teddyPrix);
+          teddyPrix.textContent=teddy.price /100 + " euros";
+
+          /*création choix couleur teddy_detail_description*/
+          const form = document.createElement ('form');
+          teddyDetailDescription.appendChild(form);
+
+          const label1 = document.createElement ('label');
+          form.appendChild(label1);
+          label1.textContent= 'Couleur disponible :';
+
+          const select1 = document.createElement ('select');
+          form.appendChild(select1);
+          select1.setAttribute='name','color';
+          select1.setAttribute='id','color';
+
+          /*ajout couleur teddy_detail_description*/
+          const colors = teddy.colors;
+
+          for (i = 0; i < colors.length; i++) {
+            const option1 = document.createElement('option');
+            select1.appendChild(option1);
+            option1.textContent = colors[i];
+            option1.setAttribute("value", colors[i]);
+          }
+
+          /*création bouton panier teddy_detail_description*/
+          let teddyBasket = document.createElement('button');
+          teddyDetailDescription.appendChild(teddyBasket);
+          teddyBasket.textContent = 'ajouter au panier';
+          teddyBasket.className = 'panier';
+
+
+        }
+
+        else {
+            console.error('Retour du serveur : ', response.status);
+            alert('Erreur rencontrée : ' + response.status);
+          } 
+    }
+
+    catch (error) {
+        alert("Erreur : " + error);
+    }
+}
+
+getTeddies()
