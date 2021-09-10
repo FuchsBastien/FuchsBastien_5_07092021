@@ -1,6 +1,6 @@
-async function appelerapi(){
+async function getapi(){
 
-    /*try {*/
+    try {
         /*récupération api*/
         let response = await fetch("http://localhost:3000/api/teddies/")
         if (response.ok) {
@@ -46,14 +46,14 @@ async function appelerapi(){
             console.error('Retour du serveur : ', response.status);
             alert('Erreur rencontrée : ' + response.status);
         } 
-    /*}
+    }
 
     catch (error) {
         alert("Erreur : " + error);
-    }*/
+    }
 }
 
 /*appel fonction */
-appelerapi();
+getapi();
 
 

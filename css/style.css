@@ -151,7 +151,6 @@ a {
   border : solid 20px #f3e9f1;
   border-top-left-radius: 50px;
   border-top-right-radius: 50px;
-  width: 1500px;
   overflow: hidden;
 }
 
@@ -168,7 +167,6 @@ a {
   border-bottom-right-radius: 50px;
   border-bottom-left-radius: 50px;
   text-align: center;
-  width: 1500px;
 }
 /*-------------------------------------------------------------*/
 
@@ -186,6 +184,14 @@ a {
   text-align: center;
 }
 
+.teddy_Delete{
+  font-size: 1.2em;
+}
+
+.fa-trash-alt {
+  color: red;
+}
+
 #form {
   background-color: #f3e9f1;
   border-radius: 30px;
@@ -200,4 +206,5 @@ a {
   margin: auto;
   padding: 10px;
 }
+
 /*-------------------------------------------------------------*/
