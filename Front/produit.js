@@ -81,6 +81,38 @@ const getTeddies = async function () {
           teddyBasket.textContent = 'ajouter au panier';
           teddyBasket.className = 'panier';
 
+          /*récupération donnée et envoi au panier"*/
+          teddyBasket.addEventListener ("click", function (/*event*/) {
+            /*event.preventDefault();*/
+
+          /* stockage des données du/des teddy souhaité dans localStorage*/
+              let teddiesChoosen = {
+                teddyName: teddy.name,
+                teddyId: teddy._id,
+                teddyColor: select1.value,
+                teddyPrice: teddy.price / 100,
+                quantity: 1,
+                };
+                console.log(teddiesChoosen);
+
+                
+                let storedTeddies = JSON.parse(localStorage.getItem('newArticle'));
+             
+                if(storedTeddies) {
+                  storedTeddies.push(teddiesChoosen);
+                  localStorage.setItem('newArticle', JSON.stringify(storedTeddies));
+                  console.log(storedTeddies);
+
+              } 
+              else {
+                  storedTeddies = [];
+                  storedTeddies.push(teddiesChoosen);
+                  localStorage.setItem('newArticle', JSON.stringify(storedTeddies));
+                  console.log(storedTeddies);
+              }
+
+
+          })     
 
         }
 
@@ -95,4 +127,5 @@ const getTeddies = async function () {
     }
 }
 
+/*appel fonction */
 getTeddies()
