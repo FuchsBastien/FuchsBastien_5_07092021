@@ -1,8 +1,13 @@
+/*-------------------------------------------------------------*/
+/*body*/
 body {
     margin: auto;
     font-family: "Montserrat", sans-serif;
   }
-  
+/*-------------------------------------------------------------*/ 
+
+
+
 /*-------------------------------------------------------------*/
 /*header*/
 header {
@@ -137,6 +142,8 @@ a {
 }
 /*-------------------------------------------------------------*/
 
+
+
 /*-------------------------------------------------------------*/
 /*page produit*/
 .teddy_detail_frame {
@@ -172,9 +179,6 @@ a {
 
 /*-------------------------------------------------------------*/
 /*page panier*/
-
-
-
 .total_basket {
   margin: 50px auto 50px auto;
   text-align: center;
@@ -186,7 +190,7 @@ a {
   justify-content: space-between;
   align-items: baseline;
   border-radius : 20px;
-  width: 75%;
+  width: 50%;
   margin: 10px auto 10px auto;
   padding: 10px;
 }
@@ -194,7 +198,7 @@ a {
 .total {
   background-color: #f3e9f1;
   border-radius : 20px;
-  width: 50%;
+  width: 20%;
   margin: 10px auto 10px auto;
   padding: 10px;
 }

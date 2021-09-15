@@ -103,14 +103,28 @@ const getTeddies = async function () {
                   localStorage.setItem('newArticle', JSON.stringify(storedTeddies));
                   console.log(storedTeddies);
 
+                  if (window.confirm(teddy.name + " " + teddyColor + ' a bien été ajouté. Souhaitez vous consulter votre panier ?')) { 
+                        window.location.href = "panier.html";
+                    } 
+                    else {
+                        window.location.href = "index.html";
+                    }
+
               } 
               else {
                   storedTeddies = [];
                   storedTeddies.push(teddiesChoosen);
                   localStorage.setItem('newArticle', JSON.stringify(storedTeddies));
                   console.log(storedTeddies);
-              }
 
+                   if (window.confirm(teddy.name + " " + teddyColor + ' a bien été ajouté. Souhaitez vous consulter votre panier ?')) { 
+                        window.location.href = "panier.html";
+                    } 
+                    else {
+                        window.location.href = "index.html";
+                    }
+
+              }
 
           })     
 

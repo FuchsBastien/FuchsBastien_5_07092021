@@ -2,7 +2,7 @@ async function getapi(){
 
     try {
         /*récupération api*/
-        let response = await fetch("http://localhost:3000/api/teddies/")
+        let response = await fetch("http://localhost:3000/api/teddies/");
         if (response.ok) {
           let teddies = await response.json();  
            console.log (teddies); 
