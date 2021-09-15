@@ -84,7 +84,7 @@ a {
 }
 
 
-.form_button {
+.form_button, .teddy_basket {
   border: none;
   background-color: red;
   border-radius: 10px;

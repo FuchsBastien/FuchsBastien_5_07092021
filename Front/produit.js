@@ -67,6 +67,7 @@ const getTeddies = async function () {
 
           /*ajout couleur teddy_detail_description*/
           const colors = teddy.colors;
+          console.log(colors);
 
           for (i = 0; i < colors.length; i++) {
             const option1 = document.createElement('option');
@@ -79,14 +80,14 @@ const getTeddies = async function () {
           let teddyBasket = document.createElement('button');
           teddyDetailDescription.appendChild(teddyBasket);
           teddyBasket.textContent = 'ajouter au panier';
-          teddyBasket.className = 'panier';
+          teddyBasket.className = 'teddy_basket';
 
           /*récupération donnée et envoi au panier"*/
           teddyBasket.addEventListener ("click", function (event) {
             event.preventDefault();
           
-          /* stockage des données du/des teddy souhaité dans localStorage*/
-              let teddiesChoosen = {
+            /*stockage des données du/des teddy souhaité dans localStorage*/
+                let teddiesChoosen = {
                 teddyName: teddy.name,
                 teddyId: teddy._id,
                 teddyColor: select1.value,
@@ -95,8 +96,9 @@ const getTeddies = async function () {
                 };
                 console.log(teddiesChoosen);
 
-                
+                    
                 let storedTeddies = JSON.parse(localStorage.getItem('newArticle'));
+
                 const teddyColor = select1.value;
 
                 if(storedTeddies) {
@@ -110,6 +112,7 @@ const getTeddies = async function () {
                         window.location.href = "index.html";
                     }
                 } 
+
                 else {
                     storedTeddies = [];
                     storedTeddies.push(teddiesChoosen);
@@ -123,14 +126,13 @@ const getTeddies = async function () {
                     }
                 }
             
-              }
-              )     
+              })     
         }
 
         else {
             console.error('Retour du serveur : ', response.status);
             alert('Erreur rencontrée : ' + response.status);
-          } 
+        } 
     }
 
     catch (error) {
@@ -138,4 +140,5 @@ const getTeddies = async function () {
     }
 }
 
+ /*appel fonction */
 getTeddies()

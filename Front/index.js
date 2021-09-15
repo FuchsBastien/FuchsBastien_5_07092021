@@ -40,8 +40,9 @@ async function getapi(){
             const pTeddyDescription = document.createElement('h3');
             teddyDescription.appendChild(pTeddyDescription);
             pTeddyDescription.textContent = teddy.price /100 + " euros";
-         }
+          }
         }
+
         else {
             console.error('Retour du serveur : ', response.status);
             alert('Erreur rencontrée : ' + response.status);
