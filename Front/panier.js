@@ -136,6 +136,137 @@ else {
       });
 
 
+    /*-----------------------------------------------------------------------*/
+
+    /*création du formulaire de commande*/
+    const form = document.createElement('form');
+    productPage.appendChild(form);
+    form.className = 'form';
+
+    /*création titre formulaire de commande*/
+    const formH1 = document.createElement('h1');
+    form.appendChild(formH1);
+    formH1.textContent = "Pour valider votre commande, merci de remplir ce formulaire : ";
+
+    /*-----------------------------------------------------------------------*/
+
+    /*création div last_name*/
+    const DivLastName = document.createElement('div');
+    form.appendChild(DivLastName);
+    DivLastName.className = 'last_name';
+
+    /*création label last_name*/
+    const LabelLastName = document.createElement('label');
+    DivLastName.appendChild(LabelLastName);
+    LabelLastName.setAttribute('for','last_name');
+    LabelLastName.textContent = 'Votre prénom : ';
+
+   /*création input last_name*/
+    const InputLastName = document.createElement('input');
+    DivLastName.appendChild(InputLastName);
+    InputLastName.setAttribute('type', 'text');
+    InputLastName.setAttribute('class', 'name');
+    InputLastName.setAttribute('placeholder', 'Bernard');
+    InputLastName.name = "Prénom"
+    InputLastName.required = true;
+
+  
+
+    /*-----------------------------------------------------------------------*/
+    
+    /*création div first_name*/
+    const DivFirstName = document.createElement('div');
+    form.appendChild(DivFirstName);
+    DivFirstName.className = 'first_name';
+
+    /*création label first_name*/
+    const LabelFirstName = document.createElement('label');
+    DivFirstName.appendChild(LabelFirstName);
+    LabelFirstName.setAttribute('for','last_name');
+    LabelFirstName.textContent = 'Votre nom : ';
+
+    /*création input first_name*/
+    const InputFirstName = document.createElement('input');
+    DivFirstName.appendChild(InputFirstName);
+    InputFirstName.setAttribute('type', 'text');
+    InputFirstName.setAttribute('class', 'name');
+    InputFirstName.setAttribute('placeholder', 'Dupond');
+    InputFirstName.name = "Nom"
+    InputFirstName.required = true;
+
+  
+    /*-----------------------------------------------------------------------*/
+
+    /*création div adress_mail*/
+    const DivAdressMail = document.createElement('div');
+    form.appendChild(DivAdressMail);
+    DivAdressMail.className = 'adress_mail';
+
+    /*création label adress_mail*/
+    const LabelAdressMail = document.createElement('label');
+    DivAdressMail.appendChild(LabelAdressMail);
+    LabelAdressMail.setAttribute('for','adress_mail');
+    LabelAdressMail.textContent = 'Votre adresse mail : ';
+
+    /*création input adress_mail*/
+    const InputAdressMail = document.createElement('input');
+    DivAdressMail.appendChild(InputAdressMail);
+    InputAdressMail.setAttribute('type', 'email');
+    InputAdressMail.setAttribute('class', 'name');
+    InputAdressMail.setAttribute('placeholder', 'dupontbernard@gmail.com');
+    InputAdressMail.name = "Nom"
+    InputAdressMail.required = true;
+
+   
+
+    /*-----------------------------------------------------------------------*/
+
+    /*création div adress*/
+    const DivAdress = document.createElement('div');
+    form.appendChild(DivAdress);
+    DivAdress.className = 'adress';
+
+    /*création label adress*/
+    const LabelAdress = document.createElement('label');
+    DivAdress.appendChild(LabelAdress);
+    LabelAdress.setAttribute('for','adress');
+    LabelAdress.textContent = 'Votre adresse : ';
+
+    /*création input adress*/
+    const InputAdress = document.createElement('input');
+    DivAdress.appendChild(InputAdress);
+    InputAdress.setAttribute('type', 'text');
+    InputAdress.setAttribute('class', 'name');
+    InputAdress.setAttribute('placeholder', '38 Rue Neuve');
+    InputAdress.name = "Nom";
+    InputAdress.required = true;
+
+  
+
+    /*-----------------------------------------------------------------------*/
+
+    /*création div city*/
+    const DivCity = document.createElement('div');
+    form.appendChild(DivCity);
+    DivCity.className = 'city';
+
+    /*création label city*/
+    const LabelCity = document.createElement('label');
+    DivCity.appendChild(LabelCity);
+    LabelCity.setAttribute('for','city');
+    LabelCity.textContent = 'Votre ville : ';
+
+    /*création input city*/
+    const InputCity = document.createElement('input');
+    DivCity.appendChild(InputCity);
+    InputCity.setAttribute('type', 'text');
+    InputCity.setAttribute('class', 'name');
+    InputCity.setAttribute('placeholder', 'Paris');
+    InputCity.name = "Nom";
+    InputCity.required = true;
+
+
+
 
 }
  

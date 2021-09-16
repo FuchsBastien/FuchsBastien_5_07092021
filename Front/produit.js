@@ -142,3 +142,5 @@ const getTeddies = async function () {
 
  /*appel fonction */
 getTeddies()
+
+

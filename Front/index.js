@@ -57,4 +57,3 @@ async function getapi(){
 /*appel fonction */
 getapi();
 
-
