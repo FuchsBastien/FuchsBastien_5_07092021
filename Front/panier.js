@@ -87,8 +87,54 @@ else {
            window.location.href = "panier.html";   
        })
      }
-
  
+  /*-----------------------------------------------------------------------*/
+      
+      /*calcul du montant total*/
+      let calculPrice = []
+      for (storedTeddy of storedTeddies) {
+          let article = storedTeddy.teddyPrice;
+          calculPrice.push(article);
+          console.log(calculPrice);
+      };
+
+      const reducer = (accumulator, currentValue) => accumulator + currentValue;
+      const totalPrice = calculPrice.reduce(reducer, 0);
+      console.log(totalPrice);
+
+      /*-----------------------------------------------------------------------*/
+      
+      /*création paragraphe montant total*/
+      const total = document.createElement('p');
+      totalBasket.appendChild(total);
+      total.className = 'total';
+      total.textContent = "Montant total : " + totalPrice + " euros";
+
+      /*-----------------------------------------------------------------------*/
+
+      /*création d'un bouton pour vider le panier*/
+      const garbage = document.createElement('button');
+      totalBasket.appendChild(garbage);
+      garbage.className = 'icon_garbage';
+
+      const cartLink = document.createElement('a');
+      garbage.appendChild(cartLink);
+      cartLink.href = "panier.html";
+      cartLink.id = "cart_link"
+      cartLink.title = 'Vider le panier';
+      cartLink.textContent = "Vider mon panier ";
+
+      const icon = document.createElement('i');
+      cartLink.appendChild(icon);
+      icon.className = 'fas fa-trash-alt'
+
+      garbage.addEventListener("click", function (event) {
+          event.preventDefault();
+          localStorage.removeItem('newArticle');
+          alert('Votre panier a bien été vidé !')
+          window.location.href = "panier.html";
+      });
+
 
 
 }
