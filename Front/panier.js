@@ -135,7 +135,6 @@ else {
           window.location.href = "panier.html";
       });
 
-
     /*-----------------------------------------------------------------------*/
 
     /*création du formulaire de commande*/
@@ -170,7 +169,20 @@ else {
     InputLastName.name = "Prénom"
     InputLastName.required = true;
 
-  
+    /*création fonctions de validité prénom, nom, ville*/
+    function isValid(value) {
+      return /^[A-Z-a-z\s]{3,40}$/.test(value);
+    };
+
+    /*Validité du prénom*/
+    InputLastName.addEventListener("change", function (event) {
+      if (isValid(InputLastName.value)) {
+      } 
+      else {
+          alert("Aucun chiffre ou symbole n'est autorisé.")
+          event.preventDefault()
+      }
+    });
 
     /*-----------------------------------------------------------------------*/
     
@@ -194,6 +206,15 @@ else {
     InputFirstName.name = "Nom"
     InputFirstName.required = true;
 
+   /*Validité du nom*/
+    InputFirstName.addEventListener("change", function (event) {
+      if (isValid(InputFirstName.value)) {
+      } 
+      else {
+          alert("Aucun chiffre ou symbole n'est autorisé.")
+          event.preventDefault()
+      }
+    });
   
     /*-----------------------------------------------------------------------*/
 
@@ -217,7 +238,21 @@ else {
     InputAdressMail.name = "Nom"
     InputAdressMail.required = true;
 
-   
+    /*création fonctions de validité mail*/
+    function validMail(value) {
+      return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*))|(".+")@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(value)
+    };
+
+
+     /*Validité du mail*/
+     InputAdressMail.addEventListener("change", function (event) {
+      if (validMail(InputAdressMail.value)) {
+      } 
+      else {
+          alert("Veuillez saisir une adresse mail valide")
+          event.preventDefault()
+      }
+    });
 
     /*-----------------------------------------------------------------------*/
 
@@ -241,7 +276,20 @@ else {
     InputAdress.name = "Nom";
     InputAdress.required = true;
 
-  
+    /*création fonctions de validité adresse*/
+    function validAddress(value) {
+      return /^[A-Z-a-z-0-9\s]{5,80}$/.test(value)
+    };
+
+    /*Validité de l'adresse*/
+    InputAdress.addEventListener("change", function (event) {
+      if (validAddress(InputAdress.value)) {
+      } 
+      else {
+          alert("Aucun chiffre ou symbole n'est autorisé.")
+          event.preventDefault()
+      }
+    });
 
     /*-----------------------------------------------------------------------*/
 
@@ -265,9 +313,26 @@ else {
     InputCity.name = "Nom";
     InputCity.required = true;
 
+  /*Validité de la ville*/
+    InputCity.addEventListener("change", function (event) {
+      if (isValid(InputCity.value)) {
+      } 
+      else {
+          alert("Aucun chiffre ou symbole n'est autorisé.")
+          event.preventDefault()
+      }
+    });
+
+    /*-----------------------------------------------------------------------*/
+
+    /*création bouton formulaire*/
+    let formButton = document.createElement('button');
+    form.appendChild(formButton);
+    formButton.className = 'form_button';
+    formButton.textContent ='Valider votre panier';
 
 
-
+    
 }
  
   
