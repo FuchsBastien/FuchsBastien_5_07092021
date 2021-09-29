@@ -58,7 +58,7 @@ const getTeddies = async function () {
 
           const label1 = document.createElement ('label');
           form.appendChild(label1);
-          label1.textContent= 'Couleur disponible :';
+          label1.textContent= 'Couleur disponible : ';
 
           const select1 = document.createElement ('select');
           form.appendChild(select1);

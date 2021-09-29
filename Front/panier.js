@@ -331,7 +331,48 @@ else {
     formButton.className = 'form_button';
     formButton.textContent ='Valider votre panier';
 
+/*-----------------------------------------------------------------------*/
 
+    /*envoi des données panier + contact au serveur si le formulaire est valide*/
+    formButton.addEventListener("click", function (event) {
+      if (isValid(InputLastName.value) && isValid(InputFirstName.value) && validAddress(InputAdress.value) && isValid(InputCity.value) && validMail(InputAdressMail.value)){
+          event.preventDefault();
+
+          /*envoi du prix total au localStorage*/
+          localStorage.setItem('totalPrice', totalPrice);
+          const storagePrice = localStorage.getItem('totalPrice');
+          console.log(storagePrice);
+
+          /*Création de l'objet "contact"*/
+          let contact = {
+              lastName: InputLastName.value,
+              firstName: InputFirstName.value,
+              address: InputAdress.value,
+              city: InputCity.value,
+              email: InputAdressMail.value,
+          }
+          console.log(contact);
+
+          /*création du tableau "products" (id des oursons du panier)*/
+                let products = [];
+                for (storedTeddy of storedTeddies) {
+                    let productsId = storedTeddy.teddyId;
+                    products.push(productsId);
+                }
+                console.log(products);
+
+          /*création d'un objet regroupant "contact" et "produits"*/
+          let send = {
+              contact,
+              products,
+          }
+          console.log(send);
+
+          
+
+      }
+
+  })
     
 }
  
