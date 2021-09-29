@@ -72,8 +72,8 @@ else {
    /*récupération article associé au bouton suppression*/
    let teddyDelete = document.getElementsByClassName ('teddy_Delete');
    for (let i = 0 ; i < teddyDelete.length; i++) {
-     teddyDelete[i].addEventListener('click' , function (event) { 
-           event.preventDefault();
+     teddyDelete[i].addEventListener('click' , function (deletion) { 
+           deletion.preventDefault();
            let id = this.closest('.each_teddy_price').id;
  
            /*on supprime l'article du local storage*/
@@ -128,8 +128,8 @@ else {
       cartLink.appendChild(icon);
       icon.className = 'fas fa-trash-alt'
 
-      garbage.addEventListener("click", function (event) {
-          event.preventDefault();
+      garbage.addEventListener("click", function (alldeletion) {
+          alldeletion.preventDefault();
           localStorage.removeItem('newArticle');
           alert('Votre panier a bien été vidé !')
           window.location.href = "panier.html";
@@ -175,12 +175,12 @@ else {
     };
 
     /*Validité du prénom*/
-    InputLastName.addEventListener("change", function (event) {
+    InputLastName.addEventListener("change", function (name) {
       if (isValid(InputLastName.value)) {
       } 
       else {
           alert("Aucun chiffre ou symbole n'est autorisé.")
-          event.preventDefault()
+          name.preventDefault()
       }
     });
 
@@ -207,12 +207,12 @@ else {
     InputFirstName.required = true;
 
    /*Validité du nom*/
-    InputFirstName.addEventListener("change", function (event) {
+    InputFirstName.addEventListener("change", function (name) {
       if (isValid(InputFirstName.value)) {
       } 
       else {
           alert("Aucun chiffre ou symbole n'est autorisé.")
-          event.preventDefault()
+          name.preventDefault()
       }
     });
   
@@ -245,12 +245,12 @@ else {
 
 
      /*Validité du mail*/
-     InputAdressMail.addEventListener("change", function (event) {
+     InputAdressMail.addEventListener("change", function (mail) {
       if (validMail(InputAdressMail.value)) {
       } 
       else {
           alert("Veuillez saisir une adresse mail valide")
-          event.preventDefault()
+          mail.preventDefault()
       }
     });
 
@@ -282,12 +282,12 @@ else {
     };
 
     /*Validité de l'adresse*/
-    InputAdress.addEventListener("change", function (event) {
+    InputAdress.addEventListener("change", function (adress) {
       if (validAddress(InputAdress.value)) {
       } 
       else {
           alert("Aucun chiffre ou symbole n'est autorisé.")
-          event.preventDefault()
+          adress.preventDefault()
       }
     });
 
@@ -314,12 +314,12 @@ else {
     InputCity.required = true;
 
   /*Validité de la ville*/
-    InputCity.addEventListener("change", function (event) {
+    InputCity.addEventListener("change", function (name) {
       if (isValid(InputCity.value)) {
       } 
       else {
           alert("Aucun chiffre ou symbole n'est autorisé.")
-          event.preventDefault()
+          name.preventDefault()
       }
     });
 
@@ -334,9 +334,9 @@ else {
 /*-----------------------------------------------------------------------*/
 
     /*envoi des données panier + contact au serveur si le formulaire est valide*/
-    formButton.addEventListener("click", function (event) {
+    formButton.addEventListener("click", function (data) {
       if (isValid(InputLastName.value) && isValid(InputFirstName.value) && validAddress(InputAdress.value) && isValid(InputCity.value) && validMail(InputAdressMail.value)){
-          event.preventDefault();
+          data.preventDefault();
 
           /*envoi du prix total au localStorage*/
           localStorage.setItem('totalPrice', totalPrice);

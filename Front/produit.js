@@ -83,8 +83,8 @@ const getTeddies = async function () {
           teddyBasket.className = 'teddy_basket';
 
           /*récupération donnée et envoi au panier"*/
-          teddyBasket.addEventListener ("click", function (event) {
-            event.preventDefault();
+          teddyBasket.addEventListener ("click", function (choice) {
+            choice.preventDefault();
           
             /*stockage des données du/des teddy souhaité dans localStorage*/
                 let teddiesChoosen = {
