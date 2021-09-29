@@ -368,7 +368,39 @@ else {
           }
           console.log(send);
 
-          
+           /*-----------------------------------------------------------------------*/
+
+            /*envoi des données au serveur*/
+              async function post (data){
+                  try {
+                      let response = await fetch('http://localhost:3000/api/teddies/order', {
+                          method: 'POST',
+                          body: JSON.stringify(data),
+                          headers: {
+                              'Content-Type': 'application/json'
+                          }
+                      });
+
+                      if(response.ok) {
+                          let data = await response.json();
+                          console.log(data.orderId);
+                          localStorage.setItem("responseOrder", data.orderId);
+                          window.location = "confirmation.html";
+                          localStorage.removeItem("newArticle");
+
+                      } else {
+                          event.preventDefault();
+                          console.error('Retour du serveur : ', response.status);
+                          alert('Erreur rencontrée : ' + response.status);
+                      } 
+
+                  } 
+                  catch (error) {
+                      alert("Erreur : " + error);
+                  } 
+              };
+
+              post(send);
 
       }
 
