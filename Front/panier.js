@@ -88,7 +88,7 @@ else {
        })
      }
  
-  /*-----------------------------------------------------------------------*/
+      /*-----------------------------------------------------------------------*/
       
       /*calcul du montant total*/
       let calculPrice = []
@@ -284,7 +284,7 @@ else {
     /*Validité de l'adresse*/
     InputAdress.addEventListener("change", function (adress) {
       if (validAddress(InputAdress.value)) {
-      } 
+      }  
       else {
           alert("Aucun chiffre ou symbole n'est autorisé.")
           adress.preventDefault()
@@ -331,7 +331,7 @@ else {
     formButton.className = 'form_button';
     formButton.textContent ='Valider votre panier';
 
-/*-----------------------------------------------------------------------*/
+    /*-----------------------------------------------------------------------*/
 
     /*envoi des données panier + contact au serveur si le formulaire est valide*/
     formButton.addEventListener("click", function (data) {
@@ -368,7 +368,7 @@ else {
           }
           console.log(send);
 
-           /*-----------------------------------------------------------------------*/
+            /*-----------------------------------------------------------------------*/
 
             /*envoi des données au serveur*/
               async function post (data){

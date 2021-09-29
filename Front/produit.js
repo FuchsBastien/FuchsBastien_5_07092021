@@ -56,25 +56,27 @@ const getTeddies = async function () {
           const form = document.createElement ('form');
           teddyDetailDescription.appendChild(form);
 
-          const label1 = document.createElement ('label');
-          form.appendChild(label1);
-          label1.textContent= 'Couleur disponible : ';
+          const label = document.createElement ('label');
+          form.appendChild(label);
+          label.textContent= 'Couleur disponible : ';
 
-          const select1 = document.createElement ('select');
-          form.appendChild(select1);
-          select1.setAttribute='name','color';
-          select1.setAttribute='id','color';
+          const select = document.createElement ('select');
+          form.appendChild(select);
+          select.setAttribute='name','color';
+          select.setAttribute='id','color';
 
           /*ajout couleur teddy_detail_description*/
           const colors = teddy.colors;
           console.log(colors);
 
           for (i = 0; i < colors.length; i++) {
-            const option1 = document.createElement('option');
-            select1.appendChild(option1);
-            option1.textContent = colors[i];
-            option1.setAttribute("value", colors[i]);
+            const option = document.createElement('option');
+            select.appendChild(option);
+            option.textContent = colors[i];
+            option.setAttribute("value", colors[i]);
           }
+
+          /*-----------------------------------------------------------------------*/
 
           /*création bouton panier teddy_detail_description*/
           let teddyBasket = document.createElement('button');
@@ -90,7 +92,7 @@ const getTeddies = async function () {
                 let teddiesChoosen = {
                 teddyName: teddy.name,
                 teddyId: teddy._id,
-                teddyColor: select1.value,
+                teddyColor: select.value,
                 teddyPrice: teddy.price / 100,
                 quantity: 1,
                 };
@@ -99,7 +101,7 @@ const getTeddies = async function () {
                     
                 let storedTeddies = JSON.parse(localStorage.getItem('newArticle'));
 
-                const teddyColor = select1.value;
+                const teddyColor = select.value;
 
                 if(storedTeddies) {
                     storedTeddies.push(teddiesChoosen);
