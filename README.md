@@ -1,3 +1,18 @@
+Instructions !
+
+Pour pouvoir utiliser correctement l'API, veuillez suivre ces instructions :
+
+Telechargez et ouvrez Node.js. Tapez la commande suivante : "npm start" dans le repertoire "Back".
+Puis lancez le serveur en tapant la commande : "node server".
+
+Le serveur doit fonctionner sur "localhost" avec le port par défaut "3000". 
+Si le serveur fonctionne sur un autre port, la console l'indiquera au démarrage du serveur, avec 
+par exemple : "Listening on port 3001".
+
+
+
+
+
 # Orinoco #
 
 This is the back end server for Project 5 of the Junior Web Developer path.

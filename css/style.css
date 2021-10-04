@@ -92,7 +92,6 @@ a {
   cursor: pointer;
 }
 
-
 .icon_garbage {
   background-color: #f3e9f1;
   border: none;
@@ -187,8 +186,6 @@ a {
   }
 }
 
-
-
 /*-------------------------------------------------------------*/
 /*page produit*/
 .teddy_detail_frame {
@@ -220,7 +217,6 @@ a {
   border-bottom-left-radius: 50px;
   text-align: center;
 }
-
 
 /*-------------------------------------------------------------*/
  /*page produit media*/ 
@@ -272,7 +268,6 @@ a {
     width: 380px;
   }
 }
-
 
 /*-------------------------------------------------------------*/
 /*page panier*/

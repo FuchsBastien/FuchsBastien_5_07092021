@@ -4,7 +4,7 @@ const urlParams = new URLSearchParams(queryString);
 const id = urlParams.get('id');
 console.log(id);
 
-const getTeddies = async function () {
+async function getTeddies () {
 
     try {
         /*récupération api*/

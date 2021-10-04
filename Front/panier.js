@@ -389,7 +389,7 @@ else {
                           localStorage.removeItem("newArticle");
 
                       } else {
-                          event.preventDefault();
+                          data.preventDefault();
                           console.error('Retour du serveur : ', response.status);
                           alert('Erreur rencontrée : ' + response.status);
                       } 

@@ -3,10 +3,16 @@ async function getapi(){
     try {
         /*récupération api*/
         let response = await fetch("http://localhost:3000/api/teddies/");
-        if (response.ok) {
-          let teddies = await response.json();  
-           console.log (teddies); 
+        let teddies = await response.json();  
+        console.log (teddies); 
 
+        /*condition api*/
+        if (teddies == null) {
+          console.error("Retour du serveur : ", response.status);
+            alert("Erreur rencontrée : " + response.status);
+        }
+
+        else {
           for (let teddy of teddies) {
             /*récupération id teddies*/
             const teddiesDiv = document.getElementById('teddies');
@@ -40,20 +46,16 @@ async function getapi(){
             const pTeddyDescription = document.createElement('h3');
             teddyDescription.appendChild(pTeddyDescription);
             pTeddyDescription.textContent = teddy.price /100 + " euros";
-          }
-        }
-
-        else {
-            console.error('Retour du serveur : ', response.status);
-            alert('Erreur rencontrée : ' + response.status);
+          }   
         } 
     }
 
-    catch (error) {
-        alert("Erreur : " + error);
+    catch {
+        alert("Erreur : le serveur est indisponible");
     }
 }
 
 /*appel fonction */
 getapi();
+
 
