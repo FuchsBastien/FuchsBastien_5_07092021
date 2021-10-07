@@ -1,6 +1,21 @@
 /*récupération données localStorage*/
 let storedTeddies = JSON.parse(localStorage.getItem('newArticle'));
-console.log(storedTeddies);
+let rep =storedTeddies.indexOf(localStorage);
+console.log( storedTeddies);
+if (rep!==-1){
+  console.log(rep+ 'je suis dans le -1');
+  if (storedTeddies[rep].teddyColor === localStorage.teddyColor){
+      let insertTeddy = new Object ()
+      //console.log(insertTeddy);
+      insertTeddy.teddyName = localstorage.teddyName, insertTeddy.teddyId = localstorage.teddyId, insertTeddy.teddyColor=localstorage.teddyColor, insertTeddy.teddyPrice= storedTeddies[rep].teddyPrice + 
+      localStorage.teddyPrice,
+      insertTeddy.quantity = storedTeddies[rep].quantity  + localStorage.quantity
+      storedTeddies [rep] = insertTeddy
+      console.log(storedTeddies)
+  }
+}
+  
+
 
 /*-----------------------------------------------------------------------*/
 
@@ -35,6 +50,7 @@ else {
   let i = 0;
   
   for (let storedTeddy of storedTeddies) {
+    
     /*création div each_teddy*/
     const eachTeddy = document.createElement('div');
     totalBasket.appendChild(eachTeddy);
@@ -99,7 +115,7 @@ else {
       };
 
       const reducer = (accumulator, currentValue) => accumulator + currentValue;
-      const totalPrice = calculPrice.reduce(reducer, 0);
+      const totalPrice = calculPrice.reduce(reducer,0);
       console.log(totalPrice);
 
       /*-----------------------------------------------------------------------*/
