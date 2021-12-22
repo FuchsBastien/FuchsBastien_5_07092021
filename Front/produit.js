@@ -107,6 +107,9 @@ async function getTeddies () {
           teddyBasket.textContent = 'ajouter au panier';
           teddyBasket.className = 'teddy_basket';
 
+
+          
+
           /*récupération donnée et envoi au panier"*/
           teddyBasket.addEventListener ("click", function (choice) {
             choice.preventDefault();
@@ -121,16 +124,73 @@ async function getTeddies () {
                 };
                 console.log(teddiesChoosen);
 
-            
-               let storedTeddies = JSON.parse(localStorage.getItem('newArticle'));
-                
-                console.log(teddiesChoosen.teddyId);
-  
-               if (storedTeddies) {
-                let rep = storedTeddies.indexOf("5be9c8541c9d440000665243")
-                console.log(rep + 'je suis avant le -1' );
 
-                if (rep!==-1){
+                let storedTeddies = JSON.parse(localStorage.getItem('newArticle'));
+                
+
+               /*//tableau local storage plein
+               if (storedTeddies!==null) {
+                   //si teddy équivalent appliquer la fonction
+                    if (rechercheTeddy()==true){
+                    rechercheTeddy()
+                    console.log("appliquer rechercheteddy");
+                    }
+                    //si pas teddy équivalent appliquer la fonction ajouterteddy
+                    else {
+                    ajouterTeddy()
+                    console.log("appliquer ajouterteddy");
+                    }
+               localStorage.setItem('newArticle', JSON.stringify(storedTeddies));   
+               } 
+
+               //tableau local storage vide
+               else {
+               storedTeddies = [];
+               storedTeddies.push(teddiesChoosen);
+               localStorage.setItem('newArticle', JSON.stringify(storedTeddies));   
+               console.log(storedTeddies);
+               }*/
+
+
+
+               //rechercher teddy équivalent (même Id et couleur)
+              /* function rechercheTeddy() {
+                var newPrice = teddiesChoosen.teddyPrice;
+                var newQuantity = teddiesChoosen.quantity;
+             
+                 for (let i = 0; i < storedTeddies.length; i++) {
+                     const currentValue = storedTeddies[i]
+     
+                     if (teddiesChoosen.teddyColor === currentValue.teddyColor &&  teddiesChoosen.teddyId === currentValue.teddyId) {  
+                     newPrice = newPrice + currentValue.teddyPrice;
+                     newQuantity = newQuantity + currentValue.quantity;
+                     currentValue.teddyPrice = newPrice;
+                     currentValue.quantity= newQuantity;
+                     console.log("rechercheteddy est true");
+                     }  
+                     
+                     else {
+                    console.log("rechercheteddy est false");
+                    }
+                   }              
+                }
+ 
+              //ajouter teddy si pas teddy équivalent
+               function ajouterTeddy() {
+                 // storedTeddies.push(teddiesChoosen)
+                  console.log("ajouterTeddy est true");
+             }*/
+ 
+
+
+              /*function rechercheTeddy() { 
+               /* let rep = storedTeddies.indexOf("5be9c8541c9d440000665243")
+                console.log(rep + 'je suis avant le -1' );
+               const found = storedTeddies.find(teddiesChoosen.teddyId == "5be9c8541c9d440000665243");
+               console.log(found);
+              
+               
+               if (rep!==1){
                     console.log(rep+ 'je suis dans le -1');
                     if (storedTeddies[rep].teddyColor === teddiesChoosen.teddyColor){
                         let insertTeddy = new Object ()
@@ -147,79 +207,13 @@ async function getTeddies () {
                 }
                 else {
                 storedTeddies.push(teddiesChoosen);
-                localStorage.setItem('newArticle', JSON.stringify(storedTeddies)); 
                 console.log(storedTeddies)
                 }
-                
-
-               } 
-               else  {
-               storedTeddies = [];
-               storedTeddies.push(teddiesChoosen);
-               localStorage.setItem('newArticle', JSON.stringify(storedTeddies));   
-               console.log(storedTeddies);
-               }
+              }*/
 
 
 
-               /*function rechercheTeddy() {
-                var newPrice = teddiesChoosen.teddyPrice;
-                var newQuantity = teddiesChoosen.quantity;
-            
-                for (let i = 0; i < storedTeddies.length; i++) {
-                    const currentValue = storedTeddies[i]
-    
-                    if (teddiesChoosen.teddyColor === currentValue.teddyColor &&  teddiesChoosen.teddyId === currentValue.teddyId) {   
-                    newPrice = newPrice + currentValue.teddyPrice;
-                    newQuantity = newQuantity + currentValue.quantity;
-                    currentValue.teddyPrice = newPrice;
-                    currentValue.quantity= newQuantity;
-                    console.log(newPrice);
-                    console.log(newQuantity);
-                    console.log(storedTeddies);
-                    }  
-                    
-                    else {
-                       storedTeddies.push(teddiesChoosen);
-                        console.log(storedTeddies);
-                   }
-                  }              
-               }*/
-
-               /*function ajoutTeddy() 
-               {
-                storedTeddies.push(teddiesChoosen);
-                console.log(storedTeddies);
-               }*/
-
-
-
-                /* var newArticle = true;
-
-               storedTeddies.forEach (function rechercheTeddy(v) {
-                var newPrice = teddiesChoosen.teddyPrice;
-                var newQuantity = teddiesChoosen.quantity;
-
-                if (teddiesChoosen.teddyName === v.teddyName && teddiesChoosen.teddyColor === v.teddyColor &&  teddiesChoosen.teddyId === v.teddyId) {
-                    newArticle= false;
-                    newPrice = newPrice + v.teddyPrice;
-                    newQuantity = newQuantity + v.quantity;
-                    v.teddyPrice = newPrice;
-                    v.quantity= newQuantity;
-                    console.log(newPrice);
-                    console.log(newQuantity);
-                    }  
-            });
-
-              if (newArticle) {
-                storedTeddies.push(teddiesChoosen);
-            }*/
-
-
-
-
-
-               /* const teddyColor = select1.value;
+               const teddyColor = select1.value;
 
                 if(storedTeddies) {
                     storedTeddies.push(teddiesChoosen);
@@ -244,13 +238,9 @@ async function getTeddies () {
                     else {
                         window.location.href = "index.html";
                     }
-                }*/
-              
-
-
-
+                }
             }) 
-
+            
         }
 
         else {

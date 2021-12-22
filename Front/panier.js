@@ -1,7 +1,8 @@
 /*récupération données localStorage*/
 let storedTeddies = JSON.parse(localStorage.getItem('newArticle'));
-let rep =storedTeddies.indexOf(localStorage);
 console.log( storedTeddies);
+
+/*let rep =storedTeddies.indexOf(localStorage);
 if (rep!==-1){
   console.log(rep+ 'je suis dans le -1');
   if (storedTeddies[rep].teddyColor === localStorage.teddyColor){
@@ -13,9 +14,8 @@ if (rep!==-1){
       storedTeddies [rep] = insertTeddy
       console.log(storedTeddies)
   }
-}
+}*/
   
-
 
 /*-----------------------------------------------------------------------*/
 
@@ -50,6 +50,8 @@ else {
   let i = 0;
   
   for (let storedTeddy of storedTeddies) {
+    let rep =storedTeddies.indexOf(localStorage);
+    
     
     /*création div each_teddy*/
     const eachTeddy = document.createElement('div');
