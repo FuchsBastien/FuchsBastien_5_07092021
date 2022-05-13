@@ -1,0 +1,53 @@
+
+               /*function rechercheTeddy() {
+                var newPrice = teddiesChoosen.teddyPrice;
+                var newQuantity = teddiesChoosen.quantity;
+            
+                for (let i = 0; i < storedTeddies.length; i++) {
+                    const currentValue = storedTeddies[i]
+    
+                    if (teddiesChoosen.teddyColor === currentValue.teddyColor &&  teddiesChoosen.teddyId === currentValue.teddyId) {   
+                    newPrice = newPrice + currentValue.teddyPrice;
+                    newQuantity = newQuantity + currentValue.quantity;
+                    currentValue.teddyPrice = newPrice;
+                    currentValue.quantity= newQuantity;
+                    console.log(newPrice);
+                    console.log(newQuantity);
+                    console.log(storedTeddies);
+                    }  
+                    
+                    else {
+                       storedTeddies.push(teddiesChoosen);
+                        console.log(storedTeddies);
+                   }
+                  }              
+               }*/
+
+               /*function ajoutTeddy() 
+               {
+                storedTeddies.push(teddiesChoosen);
+                console.log(storedTeddies);
+               }*/
+
+
+
+                /* var newArticle = true;
+
+               storedTeddies.forEach (function rechercheTeddy(v) {
+                var newPrice = teddiesChoosen.teddyPrice;
+                var newQuantity = teddiesChoosen.quantity;
+
+                if (teddiesChoosen.teddyName === v.teddyName && teddiesChoosen.teddyColor === v.teddyColor &&  teddiesChoosen.teddyId === v.teddyId) {
+                    newArticle= false;
+                    newPrice = newPrice + v.teddyPrice;
+                    newQuantity = newQuantity + v.quantity;
+                    v.teddyPrice = newPrice;
+                    v.quantity= newQuantity;
+                    console.log(newPrice);
+                    console.log(newQuantity);
+                    }  
+            });
+
+              if (newArticle) {
+                storedTeddies.push(teddiesChoosen);
+            }*/

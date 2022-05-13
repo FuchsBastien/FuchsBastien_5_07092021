@@ -1,7 +1,23 @@
 /*récupération données localStorage*/
 let storedTeddies = JSON.parse(localStorage.getItem('newArticle'));
-console.log( storedTeddies);
+console.log(storedTeddies);
 
+let storedTeddiesByCategorie = [];
+
+/*for (let i = 0; i < storedTeddies.length; i++) {
+  const currentValue = storedTeddies[i]
+  console.log(currentValue);
+  if (storedTeddiesByCategorie === currentValue.teddyColor &&  teddiesChoosen.teddyId === currentValue.teddyId) {  
+    newPrice = newPrice + currentValue.teddyPrice;
+    newQuantity = newQuantity + currentValue.quantity;
+    currentValue.teddyPrice = newPrice;
+    currentValue.quantity= newQuantity;
+    console.log("rechercheteddy est true");
+  storedTeddiesByCategorie.push(currentValue.teddyColor)
+  console.log(storedTeddiesByCategorie);
+
+
+}*/
 /*let rep =storedTeddies.indexOf(localStorage);
 if (rep!==-1){
   console.log(rep+ 'je suis dans le -1');
@@ -149,6 +165,7 @@ else {
       garbage.addEventListener("click", function (alldeletion) {
           alldeletion.preventDefault();
           localStorage.removeItem('newArticle');
+          localStorage.removeItem('color');
           alert('Votre panier a bien été vidé !')
           window.location.href = "panier.html";
       });
@@ -258,7 +275,7 @@ else {
 
     /*création fonctions de validité mail*/
     function validMail(value) {
-      return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*))|(".+")@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(value)
+      return /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(value)
     };
 
 

@@ -1,0 +1,21 @@
+
+async function askHello() {
+  let response = await fetch("https://mockbin.com/request?greetings=salut")
+    if (response.ok) {
+      let salut = await response.json();
+  
+      const hello = document.getElementById ("hello-result");
+      hello.innerText = salut.queryString.greetings;
+      
+    } 
+     
+   else {  
+            alert('Erreur rencontrée : ' + response.status);
+        } 
+}
+
+
+
+document
+  .getElementById("ask-hello")
+  .addEventListener("click", askHello);
