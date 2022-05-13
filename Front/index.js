@@ -13,9 +13,7 @@ async function getapi(){
         }
 
         else {
-  
           for (let teddy of teddies) {
-            console.log(teddy);
             /*récupération id teddies*/
             const teddiesDiv = document.getElementById('teddies');
             /*création div teddy_frame*/
@@ -29,8 +27,7 @@ async function getapi(){
             /*création lien teddy*/
             const teddiesLink = document.createElement('a');
             teddiesClass.appendChild(teddiesLink);
-            //on envoit l'id dans l'URL
-            teddiesLink.href = `produit.html?id=${teddy._id}`;
+            teddiesLink.href = "produit.html?id=" + teddy._id;
             teddiesLink.className = "teddy_details";
             /*création image teddy*/
             const teddyImg = document.createElement('img');
