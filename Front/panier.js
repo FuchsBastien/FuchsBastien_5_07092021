@@ -1,21 +1,7 @@
 /*récupération données localStorage*/
 let storedTeddies = JSON.parse(localStorage.getItem('newArticle'));
-console.log( storedTeddies);
+console.log(storedTeddies);
 
-/*let rep =storedTeddies.indexOf(localStorage);
-if (rep!==-1){
-  console.log(rep+ 'je suis dans le -1');
-  if (storedTeddies[rep].teddyColor === localStorage.teddyColor){
-      let insertTeddy = new Object ()
-      //console.log(insertTeddy);
-      insertTeddy.teddyName = localstorage.teddyName, insertTeddy.teddyId = localstorage.teddyId, insertTeddy.teddyColor=localstorage.teddyColor, insertTeddy.teddyPrice= storedTeddies[rep].teddyPrice + 
-      localStorage.teddyPrice,
-      insertTeddy.quantity = storedTeddies[rep].quantity  + localStorage.quantity
-      storedTeddies [rep] = insertTeddy
-      console.log(storedTeddies)
-  }
-}*/
-  
 
 /*-----------------------------------------------------------------------*/
 
@@ -49,8 +35,9 @@ else {
   /*variable prix*/
   let i = 0;
   
-  for (let storedTeddy of storedTeddies) {
-    let rep =storedTeddies.indexOf(localStorage);
+  function affichage() {
+    for (let storedTeddy of storedTeddies) {
+    //let rep =storedTeddies.indexOf(localStorage);
     
     
     /*création div each_teddy*/
@@ -61,6 +48,8 @@ else {
     /*création div each_teddy_detail*/
     const eachTeddyDetail = document.createElement('div');
     eachTeddy.appendChild(eachTeddyDetail);
+    eachTeddyDetail.className = 'each_teddy_detail';
+    eachTeddyDetail.id = i++;
     eachTeddyDetail.textContent = storedTeddy.quantity + " " + storedTeddy.teddyName + ","+ storedTeddy.teddyColor;
 
     /*creation div each_teddy_price*/
@@ -68,11 +57,27 @@ else {
     eachTeddy.appendChild(eachTeddyPrice);
     eachTeddyPrice.className = 'each_teddy_price';
     /*création id pour chaque teddy en fonction de la variable i*/
-    eachTeddyPrice.id = i++;
-    eachTeddyPrice.textContent = storedTeddy.teddyPrice +" euros ";
+    eachTeddyPrice.id = eachTeddyDetail.id
+    eachTeddyPrice.textContent = storedTeddy.teddyPrice +" € ";
 
-   /*-----------------------------------------------------------------------*/
+    /*-----------------------------------------------------------------------*/
+    /*création bouton ajout d'un teddy*/
+    const teddyMore = document.createElement('button');
+    eachTeddyDetail.appendChild(teddyMore);
+    teddyMore.className = 'teddy_More';
+    teddyMore.textContent = '+';
 
+ 
+    /*-----------------------------------------------------------------------*/
+    /*création bouton enlève d'un teddy*/
+    const teddyLess = document.createElement('button');
+    eachTeddyDetail.appendChild(teddyLess);
+    teddyLess.className = 'teddy_Less';
+    teddyLess.textContent = '-'
+
+    /*-----------------------------------------------------------------------*/
+
+    
     /*création bouton suppression d'un teddy*/
     const teddyDelete = document.createElement('button');
     eachTeddyPrice.appendChild(teddyDelete);
@@ -83,29 +88,91 @@ else {
     const TeddyDeleteIcon = document.createElement('i');
     teddyDelete.appendChild(TeddyDeleteIcon);
     TeddyDeleteIcon.className = 'fas fa-trash-alt';
+    }
+    //window.location.href = "panier.html";
+  }
+  affichage()
+
+  /*-----------------------------------------------------------------------*/
+
+  /*ajout 1 quantité*/
+  let teddyMore = document.getElementsByClassName ('teddy_More');
+  for (let i = 0 ; i < teddyMore.length; i++) {
+    teddyMore[i].addEventListener('click', function (more) { 
+    more.preventDefault();
+    let id = this.closest('.each_teddy_detail').id;
+    console.log(id);
+  
+    //modification prix et quantité
+    let prixUnite = storedTeddies[id].teddyPrice / storedTeddies[id].quantity;
+    console.log(prixUnite);
+    storedTeddies[id].teddyPrice =  storedTeddies[id].teddyPrice + prixUnite;
+    storedTeddies[id].quantity = storedTeddies[id].quantity + 1;
+
+    //enregistrement dans le local storage
+    localStorage.setItem('newArticle', JSON.stringify(storedTeddies));
+    JSON.parse(localStorage.getItem('newArticle'));
+    window.location.href = "panier.html";       
+    })
   }
 
-   /*-----------------------------------------------------------------------*/
 
-   /*récupération article associé au bouton suppression*/
-   let teddyDelete = document.getElementsByClassName ('teddy_Delete');
-   for (let i = 0 ; i < teddyDelete.length; i++) {
-     teddyDelete[i].addEventListener('click' , function (deletion) { 
-           deletion.preventDefault();
-           let id = this.closest('.each_teddy_price').id;
- 
-           /*on supprime l'article du local storage*/
-           storedTeddies.splice(id, 1);
- 
-           //on enregistre le nouveau localStorage
-           localStorage.setItem('newArticle', JSON.stringify(storedTeddies));
-           JSON.parse(localStorage.getItem('newArticle'));
- 
-           alert('Cet article a bien été supprimé !');
-           window.location.href = "panier.html";   
-       })
-     }
- 
+    /*suppression 1 quantité*/
+    let teddyLess = document.getElementsByClassName ('teddy_Less');
+    for (let i = 0 ; i < teddyLess.length; i++) {
+      teddyLess[i].addEventListener('click', function (less) { 
+      less.preventDefault();
+      let id = this.closest('.each_teddy_detail').id;
+      console.log(id);
+    
+      //modification prix et quantité
+      let prixUnite = storedTeddies[id].teddyPrice / storedTeddies[id].quantity;
+      console.log(prixUnite);
+      storedTeddies[id].teddyPrice =  storedTeddies[id].teddyPrice - prixUnite;
+      storedTeddies[id].quantity = storedTeddies[id].quantity - 1;
+  
+      //enregistrement dans le local storage
+      localStorage.setItem('newArticle', JSON.stringify(storedTeddies));
+      JSON.parse(localStorage.getItem('newArticle'));
+      window.location.href = "panier.html";       
+      })
+    }
+
+  
+  /*-----------------------------------------------------------------------*/
+
+  /*récupération article associé au bouton suppression*/
+  let teddyDelete = document.getElementsByClassName ('teddy_Delete');
+  for (let i = 0 ; i < teddyDelete.length; i++) {
+    teddyDelete[i].addEventListener('click' , function (deletion) { 
+      deletion.preventDefault();
+      let id = this.closest('.each_teddy_price').id;
+      console.log(id);
+
+      /*on supprime l'article du local storage*/
+      storedTeddies.splice(id, 1);
+
+      if (storedTeddies.length > 0){
+        //on enregistre le nouveau localStorage
+        localStorage.setItem('newArticle', JSON.stringify(storedTeddies));
+        JSON.parse(localStorage.getItem('newArticle'));
+
+        alert('Cet article a bien été supprimé !');
+        window.location.href = "panier.html";   
+      }
+
+      else {
+        //on vide le local storage
+        localStorage.removeItem('newArticle');
+        localStorage.removeItem('color');
+        alert('Votre panier a bien été vidé !')
+        window.location.href = "panier.html";
+      }
+           
+    })
+  }
+    
+
       /*-----------------------------------------------------------------------*/
       
       /*calcul du montant total*/
@@ -126,7 +193,7 @@ else {
       const total = document.createElement('p');
       totalBasket.appendChild(total);
       total.className = 'total';
-      total.textContent = "Montant total : " + totalPrice + " euros";
+      total.textContent = "Montant total : " + totalPrice + " €";
 
       /*-----------------------------------------------------------------------*/
 
@@ -149,6 +216,7 @@ else {
       garbage.addEventListener("click", function (alldeletion) {
           alldeletion.preventDefault();
           localStorage.removeItem('newArticle');
+          localStorage.removeItem('color');
           alert('Votre panier a bien été vidé !')
           window.location.href = "panier.html";
       });
@@ -258,7 +326,7 @@ else {
 
     /*création fonctions de validité mail*/
     function validMail(value) {
-      return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*))|(".+")@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(value)
+      return /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(value)
     };
 
 

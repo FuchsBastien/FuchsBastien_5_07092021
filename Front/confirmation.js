@@ -59,7 +59,7 @@ teddyP2.textContent = "Vos oursons vous seront bientôt expédiés";
 /*création p3*/
 const teddyP3 = document.createElement('p');
 noteOfThanks.appendChild(teddyP3);
-teddyP3.textContent = "A très bientôt chez Orinoco ! ";
+teddyP3.textContent = "A très bientôt chez Orinoco ! "; 
 
 
 /*-----------------------------------------------------------------------*/
