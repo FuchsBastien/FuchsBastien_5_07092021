@@ -35,7 +35,6 @@ else {
   /*variable prix*/
   let i = 0;
   
-  function affichage() {
     for (let storedTeddy of storedTeddies) {
     //let rep =storedTeddies.indexOf(localStorage);
     
@@ -61,7 +60,7 @@ else {
     eachTeddyPrice.textContent = storedTeddy.teddyPrice +" € ";
 
     /*-----------------------------------------------------------------------*/
-    /*création bouton ajout d'un teddy*/
+    /*création bouton + quantité teddy*/
     const teddyMore = document.createElement('button');
     eachTeddyDetail.appendChild(teddyMore);
     teddyMore.className = 'teddy_More';
@@ -69,11 +68,14 @@ else {
 
  
     /*-----------------------------------------------------------------------*/
-    /*création bouton enlève d'un teddy*/
-    const teddyLess = document.createElement('button');
-    eachTeddyDetail.appendChild(teddyLess);
-    teddyLess.className = 'teddy_Less';
-    teddyLess.textContent = '-'
+    /*création bouton - quantité teddy*/
+
+    if (storedTeddy.quantity > 1) {
+      const teddyLess = document.createElement('button');
+      eachTeddyDetail.appendChild(teddyLess);
+      teddyLess.className = 'teddy_Less';
+      teddyLess.textContent = '-';
+    }
 
     /*-----------------------------------------------------------------------*/
 
@@ -84,15 +86,15 @@ else {
     teddyDelete.className = 'teddy_Delete';
     teddyDelete.title = 'Supprimer cet article ?';
 
+
     /*création icone bouton suppression d'un teddy*/
     const TeddyDeleteIcon = document.createElement('i');
     teddyDelete.appendChild(TeddyDeleteIcon);
     TeddyDeleteIcon.className = 'fas fa-trash-alt';
     }
-    //window.location.href = "panier.html";
-  }
-  affichage()
 
+
+  
   /*-----------------------------------------------------------------------*/
 
   /*ajout 1 quantité*/
@@ -117,26 +119,26 @@ else {
   }
 
 
-    /*suppression 1 quantité*/
-    let teddyLess = document.getElementsByClassName ('teddy_Less');
-    for (let i = 0 ; i < teddyLess.length; i++) {
-      teddyLess[i].addEventListener('click', function (less) { 
-      less.preventDefault();
-      let id = this.closest('.each_teddy_detail').id;
-      console.log(id);
-    
-      //modification prix et quantité
-      let prixUnite = storedTeddies[id].teddyPrice / storedTeddies[id].quantity;
-      console.log(prixUnite);
-      storedTeddies[id].teddyPrice =  storedTeddies[id].teddyPrice - prixUnite;
-      storedTeddies[id].quantity = storedTeddies[id].quantity - 1;
+  /*suppression 1 quantité*/
+  let teddyLess = document.getElementsByClassName ('teddy_Less');
+  for (let i = 0 ; i < teddyLess.length; i++) {
+    teddyLess[i].addEventListener('click', function (less) { 
+    less.preventDefault();
+    let id = this.closest('.each_teddy_detail').id;
+    console.log(id);
   
-      //enregistrement dans le local storage
-      localStorage.setItem('newArticle', JSON.stringify(storedTeddies));
-      JSON.parse(localStorage.getItem('newArticle'));
-      window.location.href = "panier.html";       
-      })
-    }
+    //modification prix et quantité
+    let prixUnite = storedTeddies[id].teddyPrice / storedTeddies[id].quantity;
+    console.log(prixUnite);
+    storedTeddies[id].teddyPrice =  storedTeddies[id].teddyPrice - prixUnite;
+    storedTeddies[id].quantity = storedTeddies[id].quantity - 1;
+
+    //enregistrement dans le local storage
+    localStorage.setItem('newArticle', JSON.stringify(storedTeddies));
+    JSON.parse(localStorage.getItem('newArticle'));
+    window.location.href = "panier.html";       
+    })
+  }
 
   
   /*-----------------------------------------------------------------------*/
@@ -221,6 +223,7 @@ else {
           window.location.href = "panier.html";
       });
 
+
     /*-----------------------------------------------------------------------*/
 
     /*création du formulaire de commande*/
@@ -232,6 +235,7 @@ else {
     const formH1 = document.createElement('h1');
     form.appendChild(formH1);
     formH1.textContent = "Pour valider votre commande, merci de remplir ce formulaire : ";
+
 
     /*-----------------------------------------------------------------------*/
 
