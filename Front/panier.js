@@ -77,6 +77,20 @@ else {
       teddyLess.textContent = '-';
     }
 
+    else {
+        /*création bouton suppression d'un teddy*/
+    const teddyDeleteLast = document.createElement('button');
+    eachTeddyDetail.appendChild(teddyDeleteLast);
+    teddyDeleteLast.className = 'teddy_Delete_Last';
+    teddyDeleteLast.title = 'Supprimer cet article ?';
+
+
+    /*création icone bouton suppression d'un teddy*/
+    const TeddyDeleteLastIcon = document.createElement('i');
+    teddyDeleteLast.appendChild(TeddyDeleteLastIcon);
+    TeddyDeleteLastIcon.className = 'fas fa-trash-alt';
+    }
+
     /*-----------------------------------------------------------------------*/
 
     
@@ -143,7 +157,7 @@ else {
   
   /*-----------------------------------------------------------------------*/
 
-  /*récupération article associé au bouton suppression*/
+  /*récupération article associé au bouton suppression ligne entière*/
   let teddyDelete = document.getElementsByClassName ('teddy_Delete');
   for (let i = 0 ; i < teddyDelete.length; i++) {
     teddyDelete[i].addEventListener('click' , function (deletion) { 
@@ -173,7 +187,39 @@ else {
            
     })
   }
-    
+  
+   /*-----------------------------------------------------------------------*/
+
+  /*récupération article associé au bouton suppression dernier article*/
+  let teddyDelete1 = document.getElementsByClassName ('teddy_Delete_Last');
+  for (let i = 0 ; i < teddyDelete.length; i++) {
+    teddyDelete1[i].addEventListener('click' , function (deletion) { 
+      deletion.preventDefault();
+      let id = this.closest('.each_teddy_detail').id;
+      console.log(id);
+
+      /*on supprime l'article du local storage*/
+      storedTeddies.splice(id, 1);
+
+      if (storedTeddies.length > 0){
+        //on enregistre le nouveau localStorage
+        localStorage.setItem('newArticle', JSON.stringify(storedTeddies));
+        JSON.parse(localStorage.getItem('newArticle'));
+
+        alert('Cet article a bien été supprimé !');
+        window.location.href = "panier.html";   
+      }
+
+      else {
+        //on vide le local storage
+        localStorage.removeItem('newArticle');
+        localStorage.removeItem('color');
+        alert('Votre panier a bien été vidé !')
+        window.location.href = "panier.html";
+      }
+           
+    })
+  }
 
       /*-----------------------------------------------------------------------*/
       
